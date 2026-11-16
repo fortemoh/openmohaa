@@ -105,6 +105,20 @@ They can also be set directly in a config or on the command line. Out-of-range
 values are clamped by the game, and reversed minimum/maximum pairs are
 interpreted in ascending order.
 
+### Keyboard movement keys
+
+| Cvar | Default | Valid range | Description |
+| --- | ---: | ---: | --- |
+| `g_bot_keyboard` | `1` | `0` or `1` | Bots send only the move keys a keyboard can press: `-127`, `0` or `127` on each move and jump axis, so eight directions relative to the view. `0` sends the analog steering values. |
+| `g_bot_key_min_hold` | `100` | `0`-`1000` ms | Shortest time a key combination, or the jump key, stays pressed or released before it changes. |
+
+The movement code still steers with analog directions; only the command sent
+to the game is turned into keys. When the wanted direction lies between two
+key combinations, the bot alternates between them (for example holding
+forward and tapping right) so its average heading stays on course. The view,
+aim and buttons are not changed. Navigation and strategic behavior are not
+difficulty-scaled, and neither are these settings.
+
 ### Aim and reaction
 
 | Cvar | Default | Valid range | Description |

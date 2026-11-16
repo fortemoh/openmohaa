@@ -27,6 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "navigate.h"
 #include "navigation_path.h"
 #include "playerbot_route.h"
+#include "playerbot_keyboard.h"
 
 #define MAX_BOT_FUNCTIONS 5
 
@@ -511,6 +512,9 @@ private:
     // Input
     usercmd_t  m_botCmd;
     usereyes_t m_botEyes;
+
+    // Keys actually sent when g_bot_keyboard is on (see playerbot_keyboard.h)
+    BotKeyboardState m_keyboard;
 
     // States
     int               m_StateCount;

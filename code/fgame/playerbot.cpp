@@ -2391,6 +2391,8 @@ void BotController::Spawned(void)
     m_iIdleProgressTime = 0;
     m_botCmd.buttons    = 0;
     m_StateFlags        = 0;
+    // m_keyboard is kept: keys stay held across a respawn, and a round start
+    // spawns the bot several times within a few frames.
     ClearTeamResponse();
     ResetTeamContactRejection();
     ResetObjectiveBehavior();
@@ -2404,6 +2406,14 @@ void BotController::Think()
     UpdateBotStates();
     GetUsercmd(&ucmd);
     GetEyeInfo(&eyeinfo);
+
+    if (g_bot_keyboard->integer) {
+        // Send only keys a keyboard can press. The analog command stays in
+        // m_botCmd, so the bot's own logic keeps seeing what it asked for.
+        BotKeyboard_Apply(
+            m_keyboard, level.inttime, g_bot_key_min_hold->integer, ucmd.forwardmove, ucmd.rightmove, ucmd.upmove
+        );
+    }
 
     G_ClientThink(controlledEnt->edict, &ucmd, &eyeinfo);
 }

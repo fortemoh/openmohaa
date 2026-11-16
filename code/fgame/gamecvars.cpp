@@ -295,6 +295,8 @@ cvar_t *g_bot_manualmove;
 cvar_t *g_bot_strafe_intensity;
 cvar_t *g_bot_strafe_min_interval;
 cvar_t *g_bot_strafe_max_interval;
+cvar_t *g_bot_keyboard;
+cvar_t *g_bot_key_min_hold;
 cvar_t *g_bot_peek_min_interval;
 cvar_t *g_bot_peek_max_interval;
 cvar_t *g_bot_peek_distance;
@@ -814,6 +816,8 @@ void CVAR_Init(void)
     g_bot_strafe_intensity     = gi.Cvar_Get("g_bot_strafe_intensity", "0.7", 0);
     g_bot_strafe_min_interval  = gi.Cvar_Get("g_bot_strafe_min_interval", "400", 0);
     g_bot_strafe_max_interval  = gi.Cvar_Get("g_bot_strafe_max_interval", "900", 0);
+    g_bot_keyboard             = gi.Cvar_Get("g_bot_keyboard", "1", 0);
+    g_bot_key_min_hold         = gi.Cvar_Get("g_bot_key_min_hold", "100", 0);
     g_bot_peek_min_interval    = gi.Cvar_Get("g_bot_peek_min_interval", "400", 0);
     g_bot_peek_max_interval    = gi.Cvar_Get("g_bot_peek_max_interval", "900", 0);
     g_bot_peek_distance        = gi.Cvar_Get("g_bot_peek_distance", "384", 0);
@@ -823,6 +827,8 @@ void CVAR_Init(void)
     gi.Cvar_CheckRange(g_bot_strafe_intensity, 0, 1, qfalse);
     gi.Cvar_CheckRange(g_bot_strafe_min_interval, 50, 10000, qtrue);
     gi.Cvar_CheckRange(g_bot_strafe_max_interval, 50, 10000, qtrue);
+    gi.Cvar_CheckRange(g_bot_keyboard, 0, 1, qtrue);
+    gi.Cvar_CheckRange(g_bot_key_min_hold, 0, 1000, qtrue);
     CVAR_OrderPair(
         "g_bot_strafe_min_interval",
         g_bot_strafe_min_interval,

@@ -1,5 +1,5 @@
 ---
-last_updated: 2026-08-12 America/New_York
+last_updated: 2026-11-16 UTC
 branch: bots/server-ai
 peer_branch: bots/macos-client
 current_product_commit: 953800996a840e7fd0b573f58b4ddd61337554e3
@@ -11,6 +11,10 @@ external_state_last_verified: 2026-08-12
 Git and tests are canonical for implementation. External facts are timestamped and must be reverified before mutation.
 
 ## Current objective
+
+2026-11-16 (supersedes the August objective below until the owner reviews it): evaluate keyboard-legal bot movement (D024) on top of three stock-accuracy fixes cherry-picked from fortemoh/openmohaa-server (604ecdb0 stock strafe/backpedal speed, ca3cace1 top-speed rounding, 6f8c7522 fire-delay rounding), deployed to the OBJ test server on UDP 12803 (`openmohaa-objbots`, obj/obj_team2, 8 bots, telemetry off). Unverified: owner visual verdict, and door/ladder/corner behavior under keyboard keys versus the recorded baselines.
+
+August objective:
 
 Behaviorally accept or reject deployed `95380099`, an isolated fully-open-door-panel ownership experiment on top of the stable `b8dcc3b3` roaming build.
 

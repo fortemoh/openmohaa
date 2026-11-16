@@ -365,6 +365,14 @@ extern cvar_t *g_bot_strafe_min_interval;
  */
 extern cvar_t *g_bot_strafe_max_interval;
 /**
+ * @brief 1 = bots send only keyboard move keys (-127/0/127 per axis).
+ */
+extern cvar_t *g_bot_keyboard;
+/**
+ * @brief Shortest time in milliseconds bot move and jump keys stay as they are.
+ */
+extern cvar_t *g_bot_key_min_hold;
+/**
  * @brief Minimum interval in milliseconds before flipping peek/retreat direction.
  */
 extern cvar_t *g_bot_peek_min_interval;
